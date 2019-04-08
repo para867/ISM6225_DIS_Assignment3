@@ -1,0 +1,56 @@
+﻿@model IEnumerable<API_Usage.Models.News>
+@{
+    ViewData["Title"] = "News";
+
+}
+<html>
+<head>
+
+</head>
+<body>
+
+
+    <table>
+        <tbody>
+
+            <tr>
+                <td><b><u>DATE-TIME</u></b></td>
+                <td><b><u>HEADLINE</u></b></td>
+                <td><b><u>SOURCE</u></b></td>
+                <td><b><u>SUMMARY</u></b></td>
+                <td><b><u>FOR MORE DETAILS</u></b></td>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.datetime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.source)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.summary)
+                    </td>
+                    <td>
+                        <a href=@Html.DisplayFor(modelItem => item.url)> @Html.DisplayFor(modelItem => item.url) </a>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a id="marketid" asp-controller="Market" asp-action="PopulateMarket"><img src="~/img/button_save-data.png" /></a>
+    </div>
+    <script>
+    alertDbSave(@ViewBag.dbSuccessComp);
+    </script>
+
+</body>

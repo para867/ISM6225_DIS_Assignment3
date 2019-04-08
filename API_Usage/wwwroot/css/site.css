@@ -1,13 +1,13 @@
 ﻿body {
-  background-color: #CFC493;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #006747;
+    background-color: #808080;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
 }
 
 .nav-bar {
-  background-color: #006747;
-  color: #CFC493;
-  font-size: x-large;
+    background-color: #0094ff;
+    color: #ffffff;
+    font-size: x-large;
 }
 
   .nav-bar > a {

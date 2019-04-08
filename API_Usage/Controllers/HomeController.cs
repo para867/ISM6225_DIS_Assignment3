@@ -177,6 +177,10 @@ namespace API_Usage.Controllers
       Dictionary<string, int> tableCount = new Dictionary<string, int>();
       tableCount.Add("Companies", dbContext.Companies.Count());
       tableCount.Add("Charts", dbContext.Equities.Count());
+      tableCount.Add("Markets", dbContext.Markets.Count());
+      tableCount.Add("Cryptos", dbContext.Markets.Count());
+      tableCount.Add("Sectors", dbContext.Markets.Count());
+      tableCount.Add("TNews", dbContext.Markets.Count());
       return View(tableCount);
     }
 
@@ -274,6 +278,10 @@ namespace API_Usage.Controllers
         //First remove equities and then the companies
         dbContext.Equities.RemoveRange(dbContext.Equities);
         dbContext.Companies.RemoveRange(dbContext.Companies);
+        dbContext.Markets.RemoveRange(dbContext.Markets);
+        dbContext.Cryptos.RemoveRange(dbContext.Cryptos);
+        dbContext.Sectors.RemoveRange(dbContext.Sectors);
+        dbContext.TNews.RemoveRange(dbContext.TNews);
       }
       else if ("Companies".Equals(tableToDel))
       {
@@ -286,7 +294,24 @@ namespace API_Usage.Controllers
       {
         dbContext.Equities.RemoveRange(dbContext.Equities);
       }
-      dbContext.SaveChanges();
+      else if ("Markets".Equals(tableToDel))
+      {
+        dbContext.Markets.RemoveRange(dbContext.Markets);
+      }
+
+      else if ("Cryptos".Equals(tableToDel))
+      {
+        dbContext.Cryptos.RemoveRange(dbContext.Cryptos);
+      }
+      else if ("Sectors".Equals(tableToDel))
+      {
+        dbContext.Sectors.RemoveRange(dbContext.Sectors);
+      }
+      else if ("TNews".Equals(tableToDel))
+      {
+        dbContext.TNews.RemoveRange(dbContext.TNews);
+      }
+        dbContext.SaveChanges();
     }
   }
 }

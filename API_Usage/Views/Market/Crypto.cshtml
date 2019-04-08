@@ -1,0 +1,62 @@
+﻿@model IEnumerable<API_Usage.Models.Crypto>
+@{
+    ViewData["Title"] = "Crypto";
+
+}
+<html>
+<head>
+
+</head>
+<body>
+
+
+    <table>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.symbol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.companyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.open)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.close)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.high)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.low)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.latestPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.latestTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.latestVolume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bidPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.askPrice)
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a id="marketid" asp-controller="Market" asp-action="PopulateMarket"><img src="~/img/button_save-data.png" /></a>
+    </div>
+
+</body>
+</html>

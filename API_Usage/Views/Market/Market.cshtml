@@ -1,0 +1,48 @@
+﻿@model IEnumerable<API_Usage.Models.Market>
+@{
+    ViewData["Title"] = "Market";
+
+}
+<html>
+<head>
+   
+</head>
+<body>
+
+
+    <table>
+        <tbody>
+            <tr>
+                <td><b><u>MARKET IDENTIFIER CODE</u></b></td>
+                <td><b><u>VENUE NAME</u></b></td>
+                <td><b><u>ITEM VOLUME</u></b></td>
+                <td><b><u>MARKET PERCENTAGE</u></b></td>
+                
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.venueName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.volume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.marketPercent)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a id="marketid" asp-controller="Market" asp-action="PopulateMarket"><img src="~/img/button_save-data.png" /></a>
+    </div>
+
+</body>
+</html>
