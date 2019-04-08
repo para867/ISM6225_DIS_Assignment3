@@ -267,6 +267,7 @@ namespace API_Usage.Controllers
       return View("Symbols", companies);
     }
 
+
     /// <summary>
     /// Delete all records from tables
     /// </summary>

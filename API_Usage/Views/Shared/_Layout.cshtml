@@ -14,20 +14,18 @@
   <nav>
       <div class="nav-bar">
           <a asp-area="" asp-controller="Home" asp-action="Index">Home </a><text> | </text>
-          <a asp-area="" asp-controller="Home" asp-action="Symbols">Symbols </a><text> | </text>
-          <a asp-area="" asp-controller="Home" asp-action="Chart">Chart </a><text> | </text>
-          <a asp-area="" asp-controller="Home" asp-action="Refresh">Refresh </a><text> | </text>
           <a asp-area="" asp-controller="Market" asp-action="Market">Market </a><text> | </text>
           <a asp-area="" asp-controller="Market" asp-action="Sector">Sector </a><text> | </text>
           <a asp-area="" asp-controller="Market" asp-action="Crypto">Crypto </a><text> | </text>
           <a asp-area="" asp-controller="Market" asp-action="News">Latest News </a><text> | </text>
+          <a asp-area="" asp-controller="Home" asp-action="Refresh">Refresh </a><text> | </text>
       </div>
   </nav>
   <div class="container body-content">
     @RenderBody()
     <hr />
     <footer>
-      <p>ISDS, Muma College of Business, University of South Florida</p>
+      <p>Group 13, Distributed Information Systems, Muma College of Business, University of South Florida</p>
     </footer>
   </div>
   @RenderSection("Scripts", required: false)

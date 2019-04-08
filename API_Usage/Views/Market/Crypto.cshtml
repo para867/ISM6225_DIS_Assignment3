@@ -12,45 +12,58 @@
 
     <table>
         <tbody>
+            <tr>
+                <td><b><u>SYMBOL</u></b></td>
+                <td><b><u>COMPANY NAME</u></b></td>
+                <td><b><u>OPEN AT</u></b></td>
+                <td><b><u>CLOSE AT</u></b></td>
+                <td><b><u>HIGH</u></b></td>
+                <td><b><u>LOW</u></b></td>
+                <td><b><u>LATEST PRICE</u></b></td>
+                <td><b><u>LATEST ITEM</u></b></td>
+                <td><b><u>LATEST VOLUME</u></b></td>
+                <td><b><u>BID PRICE</u></b></td>
+                <td><b><u>ASK PRICE</u></b></td>
+            </tr>
 
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.symbol)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.companyName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.open)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.close)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.high)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.low)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.latestPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.latestTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.latestVolume)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.bidPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.askPrice)
-                </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.symbol)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.companyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.open)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.close)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.high)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.low)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.latestPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.latestTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.latestVolume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bidPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.askPrice)
+                    </td>
 
-            </tr>
+                </tr>
             }
         </tbody>
     </table>
