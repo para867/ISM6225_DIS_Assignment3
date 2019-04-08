@@ -75,17 +75,13 @@ namespace API_Usage.Controllers
 
         public IActionResult PopulateMarket()
         {
-            // retrieve the companies that were saved in the symbols method
-            // saving in TempData is extremely inefficient - the data circles back from the browser
-            // better methods would be to serialize to the hard disk, or save directly into the database
-            //  in the symbols method. This example has been structured to demonstrate one way to save object data
-            //  and retrieve it later
+            // retrieve the market data that was saved        
             List<Market> Mrkt = JsonConvert.DeserializeObject<List<Market>>(TempData["market"].ToString());
 
             foreach (Market market in Mrkt)
             {
                 //Database will give PK constraint violation error when trying to insert record with existing PK.
-                //So add company only if it doesnt exist, check existence using symbol (PK)
+                
                 if (dbContext.Markets.Where(c => c.mic.Equals(market.mic)).Count() == 0)
                 {
                     dbContext.Markets.Add(market);
@@ -96,9 +92,7 @@ namespace API_Usage.Controllers
             ViewBag.dbSuccessComp = 1;
             return View("Market", Mrkt);
         }
-        // fix the relations. By default the quotes do not have the company symbol
-        //  this symbol serves as the foreign key in the database and connects the quote to the company
-
+        
 
         public IActionResult Crypto()
         {
@@ -106,7 +100,7 @@ namespace API_Usage.Controllers
             ViewBag.dbSucessComp = 0;
             List<Crypto> Crypto = GetCrypto();
 
-            //Save Market in TempData, so they do not have to be retrieved again
+            
             TempData["crypto"] = JsonConvert.SerializeObject(Crypto);
 
             return View(Crypto);
@@ -142,17 +136,14 @@ namespace API_Usage.Controllers
 
         public IActionResult PopulateCrypto()
         {
-            // retrieve the companies that were saved in the symbols method
-            // saving in TempData is extremely inefficient - the data circles back from the browser
-            // better methods would be to serialize to the hard disk, or save directly into the database
-            //  in the symbols method. This example has been structured to demonstrate one way to save object data
-            //  and retrieve it later
+            // retrieve the crypto data that was saved 
+            
             List<Crypto> crypt = JsonConvert.DeserializeObject<List<Crypto>>(TempData["crypto"].ToString());
 
             foreach (Crypto crypto in crypt)
             {
                 //Database will give PK constraint violation error when trying to insert record with existing PK.
-                //So add company only if it doesnt exist, check existence using symbol (PK)
+                
                 if (dbContext.Cryptos.Where(c => c.symbol.Equals(crypto.symbol)).Count() == 0)
                 {
                     dbContext.Cryptos.Add(crypto);
@@ -163,8 +154,7 @@ namespace API_Usage.Controllers
             ViewBag.dbSuccessComp = 1;
             return View("Crypto", crypt);
         }
-        // fix the relations. By default the quotes do not have the company symbol
-        //  this symbol serves as the foreign key in the database and connects the quote to the company
+        
 
         public IActionResult Sector()
         {
@@ -172,7 +162,7 @@ namespace API_Usage.Controllers
             ViewBag.dbSucessComp = 0;
             List<Sector> Sector = GetSector();
 
-            //Save Market in TempData, so they do not have to be retrieved again
+            //Save sector in TempData, so they do not have to be retrieved again
             TempData["sector"] = JsonConvert.SerializeObject(Sector);
 
             return View(Sector);
@@ -208,17 +198,14 @@ namespace API_Usage.Controllers
 
         public IActionResult PopulateSector()
         {
-            // retrieve the companies that were saved in the symbols method
-            // saving in TempData is extremely inefficient - the data circles back from the browser
-            // better methods would be to serialize to the hard disk, or save directly into the database
-            //  in the symbols method. This example has been structured to demonstrate one way to save object data
-            //  and retrieve it later
+            // retrieve the sector data that was saved
+            
             List<Sector> sect = JsonConvert.DeserializeObject<List<Sector>>(TempData["sector"].ToString());
 
             foreach (Sector sector in sect)
             {
                 //Database will give PK constraint violation error when trying to insert record with existing PK.
-                //So add company only if it doesnt exist, check existence using symbol (PK)
+     
                 if (dbContext.Sectors.Where(c => c.name.Equals(sector.name)).Count() == 0)
                 {
                     dbContext.Sectors.Add(sector);
@@ -229,16 +216,15 @@ namespace API_Usage.Controllers
             ViewBag.dbSuccessComp = 1;
             return View("Sector", sect);
         }
-        // fix the relations. By default the quotes do not have the company symbol
-        //  this symbol serves as the foreign key in the database and connects the quote to the company
+        
 
         public IActionResult News()
         {
-            //Set ViewBag variable first
+            
             ViewBag.dbSucessComp = 0;
             List<News> News = GetNews();
 
-            //Save Market in TempData, so they do not have to be retrieved again
+            
             TempData["news"] = JsonConvert.SerializeObject(News);
 
             return View(News);
@@ -246,10 +232,10 @@ namespace API_Usage.Controllers
 
         public List<News> GetNews()
         {
-            // string to specify information to be retrieved from the API
+            
             string IEXTrading_API_PATH = BASE_URL + "/stock/aapl/news";
 
-            // initialize objects needed to gather data
+           
             string news = "";
             List<News> News = null;
             httpClient.BaseAddress = new Uri(IEXTrading_API_PATH);
@@ -274,17 +260,13 @@ namespace API_Usage.Controllers
 
         public IActionResult PopulateNews()
         {
-            // retrieve the companies that were saved in the symbols method
-            // saving in TempData is extremely inefficient - the data circles back from the browser
-            // better methods would be to serialize to the hard disk, or save directly into the database
-            //  in the symbols method. This example has been structured to demonstrate one way to save object data
-            //  and retrieve it later
+            
             List<News> nws = JsonConvert.DeserializeObject<List<News>>(TempData["news"].ToString());
 
             foreach (News news in nws)
             {
                 //Database will give PK constraint violation error when trying to insert record with existing PK.
-                //So add company only if it doesnt exist, check existence using symbol (PK)
+                
                 if (dbContext.TNews.Where(c => c.headline.Equals(news.headline)).Count() == 0)
                 {
                     dbContext.TNews.Add(news);

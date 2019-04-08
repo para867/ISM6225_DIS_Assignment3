@@ -2,32 +2,18 @@
   ViewData["Title"] = "Index";
 }
 
-<h2>IEX Trading Application</h2>
-<hr />
 
-<div>
-  <p>
-    This application let's you fetch trading data from IEX via their public
-    <a href="https://iextrading.com/developer/">API</a>.
-    <br />
-    <br />
-    The <a asp-area="" asp-controller="Home" asp-action="Symbols">Symbols</a> tab fetches symbols data from the
-    <a href="https://iextrading.com/developer/docs/#reference-data">IEX Reference API </a> and displays the results.
-    This data can also be saved in the local database.
-    <br />
-    The <a asp-area="" asp-controller="Home" asp-action="Chart">Chart</a> tab let's you select a Company(symbol) and fetches a quote from
-    <a href="https://iextrading.com/developer/docs/#stocks">IEX Stock API</a>.
-    The quote can also be saved in the local database.
-    <br />
-    The <a asp-area="" asp-controller="Home" asp-action="Refresh">Refresh</a> tab let's you refresh the local database, that is, remove all its contents.
-  </p>
-  <p>
-    The application demonstrates the following -
-    <ul>
-      <li>Connection to REST API (the example uses IEXTrading, an easy-to-use API that provides stock data)</li>
-      <li>Parsing the Json objects returned from the API</li>
-      <li>Modeling API results as entities</li>
-      <li>Persisting data to a relational database</li>
-    </ul>
-  </p>
-</div>
+
+
+
+        <h2>IEXApp - Today's market briefing</h2>
+        The Website provides live and historical statistics from IEX for investors and companies. This application let's you fetch trading data from IEX via their public API.
+        <div>
+            <ul>
+                <li>Market: This endpoint returns near real time traded volume on the markets.</li>
+                <li>Sector: This endpoint returns an array of each sector and performance for the current trading day.</li>
+                <li>Crypto: This will return an array of quotes for all Cryptocurrencies supported by the IEX API.</li>
+                <li>News: The top headlines of the day with their sources and URL links.</li>
+            </ul>
+        </div>
+    

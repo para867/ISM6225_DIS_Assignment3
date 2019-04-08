@@ -54,9 +54,10 @@ namespace API_Usage.Controllers
 
       //Save companies in TempData, so they do not have to be retrieved again
       TempData["Companies"] = JsonConvert.SerializeObject(companies);
-      //TempData["Companies"] = companies;
+      
+            //TempData["Companies"] = companies;
 
-      return View(companies);
+            return View(companies);
     }
 
     /****
@@ -263,13 +264,14 @@ namespace API_Usage.Controllers
       ViewBag.dbSuccessComp = 1;
       return View("Symbols", companies);
         }
+       
 
 
-    /// <summary>
-    /// Delete all records from tables
-    /// </summary>
-    /// <param name="tableToDel">Table to clear</param>
-    public void ClearTables(string tableToDel)
+        /// <summary>
+        /// Delete all records from tables
+        /// </summary>
+        /// <param name="tableToDel">Table to clear</param>
+        public void ClearTables(string tableToDel)
     {
       if ("all".Equals(tableToDel))
       {
