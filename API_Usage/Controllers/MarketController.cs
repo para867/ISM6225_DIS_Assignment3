@@ -140,7 +140,7 @@ namespace API_Usage.Controllers
             return Crypto;
         }
 
-        public IActionResult PopulateCryto()
+        public IActionResult PopulateCrypto()
         {
             // retrieve the companies that were saved in the symbols method
             // saving in TempData is extremely inefficient - the data circles back from the browser

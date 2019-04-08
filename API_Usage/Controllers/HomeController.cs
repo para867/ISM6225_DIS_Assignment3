@@ -9,11 +9,8 @@ using System.Linq;
 
 /*
  * Acknowledgments
- *  v1 of the project was created for the Fall 2018 class by Dhruv Dhiman, MS BAIS '18
- *    This example showed how to use v1 of the IEXTrading API
- *    
- *  Kartikay Bali (MS BAIS '19) extended the project for Spring 2019 by demonstrating 
- *    how to use similar methods to access Azure ML models
+ *  We'd like to thank DIS Faculty Mr. Manish Agrawal and his TA Kartikay Bali for allowing us to
+ *   use their program as a base.    
 */
 
 namespace API_Usage.Controllers
@@ -265,7 +262,7 @@ namespace API_Usage.Controllers
       dbContext.SaveChanges();
       ViewBag.dbSuccessComp = 1;
       return View("Symbols", companies);
-    }
+        }
 
 
     /// <summary>
@@ -293,23 +290,28 @@ namespace API_Usage.Controllers
       }
       else if ("Charts".Equals(tableToDel))
       {
+                //Remove Charts
         dbContext.Equities.RemoveRange(dbContext.Equities);
       }
       else if ("Markets".Equals(tableToDel))
       {
+                //Remove Markets
         dbContext.Markets.RemoveRange(dbContext.Markets);
       }
 
       else if ("Cryptos".Equals(tableToDel))
       {
+                // Remove Cryptos
         dbContext.Cryptos.RemoveRange(dbContext.Cryptos);
       }
       else if ("Sectors".Equals(tableToDel))
       {
+                //Remove Sectors
         dbContext.Sectors.RemoveRange(dbContext.Sectors);
       }
       else if ("TNews".Equals(tableToDel))
       {
+                //Remove News
         dbContext.TNews.RemoveRange(dbContext.TNews);
       }
         dbContext.SaveChanges();
