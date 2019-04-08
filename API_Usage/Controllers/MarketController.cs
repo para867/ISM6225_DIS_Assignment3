@@ -295,8 +295,12 @@ namespace API_Usage.Controllers
             ViewBag.dbSuccessComp = 1;
             return View("News", nws);
         }
-        // fix the relations. By default the quotes do not have the company symbol
-        //  this symbol serves as the foreign key in the database and connects the quote to the company
+
+    public IActionResult AboutUs()
+        {
+            return View();
+        }
+
 
     }
 }
