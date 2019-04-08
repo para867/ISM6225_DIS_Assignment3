@@ -296,7 +296,7 @@ namespace API_Usage.Controllers
             return View("News", nws);
         }
 
-    public IActionResult AboutUs()
+        public IActionResult AboutUs()
         {
             return View();
         }
