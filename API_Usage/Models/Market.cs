@@ -45,6 +45,7 @@ namespace API_Usage.Models
     public class Sector
     {
         [Key]
+        public int? SectorID { get; set; }
         public string type { get; set; }
         public string name { get; set; }
         public float? performance { get; set; }
